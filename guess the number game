@@ -1,0 +1,28 @@
+import random
+
+while True:
+    mynum = random.randint(1, 100)
+    print("\nI've a number in my mind. Can you guess it?")
+    
+    tries = 0  
+    
+    while True:
+        try:
+            usernum = int(input("Enter your guess: "))
+            tries += 1
+        except ValueError:
+            print("Please enter a valid number!")
+            continue
+        
+        if mynum == usernum:
+            print(f"Yes!! You're correct. 🎉 You guessed it in {tries} tries.")
+            break
+        elif mynum > usernum:
+            print("My number is greater than your guess! Try again.\n")
+        else:
+            print("My number is smaller than your guess! Try again.\n")
+    
+    play_again = input("Do you want to play again? (y/n): ").strip().lower()
+    if play_again != 'y':
+        print("Thanks for playing! Goodbye 👋")
+        break
