@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Love Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f0;
+            padding: 50px;
+        }
+        img {
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #ff4d88;
+            color: white;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #e6005c;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn" onclick="startLove()">Click Me 💌</button>
+    <div id="content"></div>
+
+    <script>
+        let step = 0;
+
+        function startLove() {
+            step = 1;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            let content = document.getElementById("content");
+            content.innerHTML = `
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUycjhucmR0eTdrenk1djNnanBrM2g3cGU5a2R5ZGRqMWUzbmExaDRpYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BMVS53dkX8pYaR9IMD/giphy.gif " alt="Love Image">
+                <h2>Do you love me? ❤️</h2>
+                <button class="btn" onclick="yesResponse()">Yes</button>
+                <button class="btn" onclick="noResponse()">No</button>
+            `;
+        }
+
+        function yesResponse() {
+            document.getElementById("content").innerHTML = `
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyanRtNXZhMTVueDFnOXp2MnY4dHNjMXMwOGJwY252cGZ0bTd6d3hnZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT39CXg70nNS0MFNLy/giphy.gif " alt="Love Image">
+                <h2>Yes, I knew it!! I love you too! ❤️🦋🌚</h2>
+            `;
+        }
+
+        function noResponse() {
+            if (step === 1) {
+                step = 2;
+                document.getElementById("content").innerHTML = `
+                    <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydWp5Y3l6aGZrYW85ZnE5ZjJvNXZ3aTMwdWhsc2NpbzE3bGd4am1hOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JucApR3kaFe1RlTgl8/giphy.gif " alt="Please Image">
+                    <h2>Please think again, my love!! I love you so much!! Please 🤌🥺</h2>
+                    <button class="btn" onclick="yesResponse()">Yes</button>
+                    <button class="btn" onclick="noResponse()">No</button>
+                `;
+            } else if (step === 2) {
+                step = 3;
+                document.getElementById("content").innerHTML = `
+                    <h2>You've no other option except 'Yes' (itna bhau maat khao cutie) 😏</h2>
+                    <button class="btn" onclick="yesResponse()">Yes</button>
+                `;
+            }
+        }
+    </script
+
+</body>
+</html>
